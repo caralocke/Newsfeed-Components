@@ -33,13 +33,18 @@ let menuItems = [
 */
 const header = document.querySelector('.header')
 
-function menuMaker(array) {
+//Step 1
+function menuMaker(array) { 
   const menu = document.createElement('div')
   const ul = document.createElement('ul')
-  const menuButton = document.createElement('button')
+  const menuButton = document.querySelector('.menu-button')
 
   menu.classList.add('menu')
 
-  
-
+  //Step 2
+  array.map(item => {
+    const newItem = document.createElement('li')
+    newItem.textContent = item
+    ul.appendChild(newItem)
+  })
 }
