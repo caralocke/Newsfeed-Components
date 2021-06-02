@@ -116,7 +116,9 @@ const data = [
 */
 //Step 1:
 const articles = document.querySelector('.articles')
-function articleMaker(Obj){
+
+function articleMaker(obj){
+  //Instantiated elements
   const article = document.createElement('div')
   const title = document.createElement('h2')
   const date = document.createElement('p')
@@ -125,5 +127,42 @@ function articleMaker(Obj){
   const paragraphThree = document.createElement('p')
   const expandButton = document.createElement('span')
 
-  
+  //append items
+  article.appendChild(title)
+  article.appendChild(date)
+  article.appendChild(paragraphOne)
+  article.appendChild(paragraphTwo)
+  article.appendChild(paragraphThree)
+  article.appendChild(expandButton)
+
+  //add classLists
+
+  article.classList.add('article')
+  date.classList.add('date')
+  expandButton.classList.add('expandButton')
+
+  //populate the fields needed for the text of the article card
+  title.textContent = obj.title
+  date.textContent = obj.date
+  paragraphOne.textContent = obj.firstParagraph
+  paragraphTwo.textContent = obj.secondParagraph
+  paragraphThree.textContent = obj.thirdParagraph
+  expandButton.textContent = '♥'
+
+  //Step 2: Add an event listener to the span.expandButton
+  expandButton.addEventListener('click', event => {
+    article.classList.toggle('article-open')
+  })
+  //Step 3: return something
+  return article
 }
+
+//Step 4: loop over the data, at each iteration you'll use your component to create a div.article element and append it to the DOM inside div.articles
+
+const articlesArray = data.map((article) => {
+  return articleMaker(article)
+})
+
+articlesArray.forEach(article =>{
+  articles.appendChild(article)
+})
