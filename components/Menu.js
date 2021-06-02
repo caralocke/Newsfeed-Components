@@ -37,6 +37,7 @@ const header = document.querySelector('.header')
 function menuMaker(array) { 
   const menu = document.createElement('div')
   const ul = document.createElement('ul')
+  //Step 3
   const menuButton = document.querySelector('.menu-button')
 
   menu.classList.add('menu')
@@ -47,4 +48,12 @@ function menuMaker(array) {
     newItem.textContent = item
     ul.appendChild(newItem)
   })
+
+  //Step 4
+  menuButton.addEventListener('click', event => {
+    menu.classList.toggle('menu--open')
+  })
+
+  //Step 5
+  return menu
 }
