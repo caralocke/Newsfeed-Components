@@ -41,6 +41,8 @@ function menuMaker(array) {
   const menuButton = document.querySelector('.menu-button')
 
   menu.classList.add('menu')
+  
+  menu.appendChild(ul)
 
   //Step 2
   array.map(item => {
@@ -57,3 +59,6 @@ function menuMaker(array) {
   //Step 5
   return menu
 }
+
+//Step 6
+header.appendChild(menuMaker(menuItems))
